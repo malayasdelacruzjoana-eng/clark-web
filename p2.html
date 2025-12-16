@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUPCAKE ORDER LIST</title>
+  <style>
+    * { box-sizing: border-box; }body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-image: url('cupcake-pastel-bg.jpg'); /* gamit ang pastel cupcake image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.35); /* mas light para kita ang pastel background */
+  min-height: 100vh;
+  padding: 40px 15px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 35px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 6px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 30px;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.tag {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  li { flex-direction: column; }
+  .price { margin-top: 4px; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>🧁 CUPCAKE ORDER LIST</h1>
+      <p style="text-align:center;">Filipino‑Inspired Flavors 🇵🇭</p><h2>Classic Filipino Favorites</h2>
+  <ul>
+    <li><span>Ube Cream Cheese Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Leche Flan Cupcake</span><span class="price">₱60</span></li>
+    <li><span>Pandan Vanilla Cupcake</span><span class="price">₱50</span></li>
+    <li><span>Chocolate Tablea Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Yema Cupcake</span><span class="price">₱50</span></li>
+  </ul>
+
+  <h2>Fruit‑Based & Tropical Flavors</h2>
+  <ul>
+    <li><span>Mango Float Cupcake</span><span class="price">₱60</span></li>
+    <li><span>Buko Pandan Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Pineapple Upside‑Down Cupcake</span><span class="price">₱50</span></li>
+    <li><span>Calamansi Zest Cupcake</span><span class="price">₱50</span></li>
+  </ul>
+
+  <h2>Chocolate & Sweet Treats</h2>
+  <ul>
+    <li><span>Choco Mallows Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Rocky Road Cupcake</span><span class="price">₱60</span></li>
+    <li><span>Chocolate Banana Cupcake</span><span class="price">₱50</span></li>
+    <li><span>Cookies & Cream Cupcake</span><span class="price">₱55</span></li>
+  </ul>
+
+  <h2>Premium / Special Flavors</h2>
+  <ul>
+    <li><span>Matcha White Chocolate</span><span class="price">₱65</span></li>
+    <li><span>Salted Caramel</span><span class="price">₱60</span></li>
+    <li><span>Red Velvet Cream Cheese</span><span class="price">₱65</span></li>
+  </ul>
+
+  <div class="section">
+    <h2>🎉 Event Packages</h2>
+
+    <p><strong>💍 Wedding Package</strong><br>
+    Minimum: 4 dozen<br>
+    Classic ₱55 | Premium ₱65</p>
+    <p class="tag">Popular: Ube • Mango • Red Velvet • Matcha</p>
+
+    <p><strong>🎂 Birthday Package</strong><br>
+    Minimum: 2 dozen<br>
+    ₱50–₱65 depende sa flavor</p>
+
+    <p><strong>🎒 School / Event Package</strong><br>
+    Minimum: 1 dozen<br>
+    ₱40–₱45 | Toppers +₱5–₱10</p>
+  </div>
+
+  <footer>
+    Lead Time: 3–5 days • Custom designs available • Bulk discounts
+  </footer>
+</div>
+
+  </div>
+</body>
+</html>
