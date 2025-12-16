@@ -1,128 +1,146 @@
 <!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cupcake Order & Receipt</title>
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:'Segoe UI',Tahoma,sans-serif;
-  background-image:url('cupcake-pastel-bg.jpg');
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUPCAKE ORDER LIST</title>
+  <style>
+    * { box-sizing: border-box; }body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-image: url('cupcake-pastel-bg.jpg'); /* gamit ang pastel cupcake image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
-.overlay{
-  background:rgba(255,255,255,0.35);
-  min-height:100vh;
-  padding:40px 15px;
+
+.overlay {
+  background: rgba(255, 255, 255, 0.35); /* mas light para kita ang pastel background */
+  min-height: 100vh;
+  padding: 40px 15px;
 }
-.container{
-  max-width:900px;
-  margin:auto;
-  background:rgba(255,255,255,0.95);
-  border-radius:16px;
-  padding:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
-h1{text-align:center}
-h2{margin-top:30px;border-bottom:2px solid #ddd}
-.section{background:#fafafa;padding:20px;border-radius:12px;margin-top:25px}
-label{display:block;margin-top:10px;font-weight:600}
-input{width:100%;padding:10px;border-radius:8px;border:1px solid #ccc}
-.item{display:flex;justify-content:space-between;align-items:center;margin:8px 0;gap:10px}
-.item input[type=number]{width:70px}
-.item input[type=checkbox]{transform:scale(1.3)}
-.item input{width:70px}
-.total{font-size:18px;font-weight:bold;margin-top:15px}
-button{margin-top:15px;padding:12px;width:100%;border:none;border-radius:10px;background:#ff9eb5;color:#000;font-size:16px;font-weight:bold;cursor:pointer}
-.receipt{display:none;margin-top:25px;padding:20px;border:2px dashed #aaa}
-@media print{
-  body *{visibility:hidden}
-  .receipt, .receipt *{visibility:visible}
-  .receipt{position:absolute;top:0;left:0;width:100%}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
 }
-</style>
+
+h2 {
+  margin-top: 35px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 6px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 30px;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.tag {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  li { flex-direction: column; }
+  .price { margin-top: 4px; }
+}
+
+  </style>
 </head>
 <body>
-<div class="overlay">
-<div class="container"><h1>🧁 CUPCAKE ORDER LIST</h1>
-<p style="text-align:center">Filipino‑Inspired Flavors 🇵🇭</p><div class="section">
-<h2>📝 Customer Information</h2>
-<label>First Name</label><input id="fname">
-<label>Last Name</label><input id="lname">
-<label>Address</label><input id="address">
-<label>Contact Number</label><input id="contact">
-<label>Delivery Date</label><input type="date" id="date">
-</div><div class="section">
-<h2>🧁 Order Items</h2>
-<div class="item"><input type="checkbox" class="chk"><span>Ube Cream Cheese (₱55)</span><input type="number" min="0" value="0" data-price="55"></div>
-<div class="item"><input type="checkbox" class="chk"><span>Leche Flan (₱60)</span><input type="number" min="0" value="0" data-price="60"></div>
-<div class="item"><input type="checkbox" class="chk"><span>Pandan Vanilla (₱50)</span><input type="number" min="0" value="0" data-price="50"></div>
-<div class="item"><input type="checkbox" class="chk"><span>Chocolate Tablea (₱55)</span><input type="number" min="0" value="0" data-price="55"></div><div class="total">Total: ₱<span id="total">0</span></div>
-</div><div class="section">
-<h2>💰 Payment</h2>
-<label>Customer Payment</label><input type="number" id="payment" min="0">
-<div class="total">Change: ₱<span id="change">0</span></div>
-</div><button onclick="generateReceipt()">Submit Order & Print Receipt</button>
+  <div class="overlay">
+    <div class="container">
+      <h1>🧁 CUPCAKE ORDER LIST</h1>
+      <p style="text-align:center;">Filipino‑Inspired Flavors 🇵🇭</p><h2>Classic Filipino Favorites</h2>
+  <ul>
+    <li><span>Ube Cream Cheese Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Leche Flan Cupcake</span><span class="price">₱60</span></li>
+    <li><span>Pandan Vanilla Cupcake</span><span class="price">₱50</span></li>
+    <li><span>Chocolate Tablea Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Yema Cupcake</span><span class="price">₱50</span></li>
+  </ul>
 
-<div class="receipt" id="receipt">
-<h2>🧾 OFFICIAL RECEIPT</h2>
-<p id="rCustomer"></p>
-<p id="rAddress"></p>
-<p id="rDate"></p>
-<hr>
-<p id="rOrders"></p>
-<p><strong>Total: ₱<span id="rTotal"></span></strong></p>
-<p>Payment: ₱<span id="rPayment"></span></p>
-<p>Change: ₱<span id="rChange"></span></p>
-<p>Thank you for your order! 💖</p>
-</div></div><div class="section" style="text-align:center">
-  <img src="bg.jpeg" alt="My Photo" style="max-width:180px;border-radius:12px;margin-top:10px">
-  <p><strong>Submitted by:</strong> Clark L. Cadahing</p>
-  <p><strong>Submitted to:</strong> Sir Sherwin Sanggalang</p>
-</div></div>
-</div><script>
-const qtyInputs=document.querySelectorAll('[data-price]');
-const chkInputs=document.querySelectorAll('.chk');
-chkInputs.forEach((c,i)=>{
-  c.addEventListener('change',()=>{
-    if(!c.checked) qtyInputs[i].value=0;
-    calcTotal();
-  });
-});
-qtyInputs.forEach((q,i)=>{
-  q.addEventListener('input',()=>{
-    chkInputs[i].checked = q.value>0;
-    calcTotal();
-  });
-});
+  <h2>Fruit‑Based & Tropical Flavors</h2>
+  <ul>
+    <li><span>Mango Float Cupcake</span><span class="price">₱60</span></li>
+    <li><span>Buko Pandan Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Pineapple Upside‑Down Cupcake</span><span class="price">₱50</span></li>
+    <li><span>Calamansi Zest Cupcake</span><span class="price">₱50</span></li>
+  </ul>
 
-document.getElementById('payment').addEventListener('input',calcChange);
+  <h2>Chocolate & Sweet Treats</h2>
+  <ul>
+    <li><span>Choco Mallows Cupcake</span><span class="price">₱55</span></li>
+    <li><span>Rocky Road Cupcake</span><span class="price">₱60</span></li>
+    <li><span>Chocolate Banana Cupcake</span><span class="price">₱50</span></li>
+    <li><span>Cookies & Cream Cupcake</span><span class="price">₱55</span></li>
+  </ul>
 
-function calcTotal(){('[data-price]');
-qtyInputs.forEach(i=>i.addEventListener('input',calcTotal));
-document.getElementById('payment').addEventListener('input',calcChange);
+  <h2>Premium / Special Flavors</h2>
+  <ul>
+    <li><span>Matcha White Chocolate</span><span class="price">₱65</span></li>
+    <li><span>Salted Caramel</span><span class="price">₱60</span></li>
+    <li><span>Red Velvet Cream Cheese</span><span class="price">₱65</span></li>
+  </ul>
 
-function calcTotal(){
-  let total=0;
-  qtyInputs.forEach(i=>total+=i.value*i.dataset.price);
-  document.getElementById('total').textContent=total;
-  calcChange();
-}
-function calcChange(){
-  const total=+document.getElementById('total').textContent;
-  const pay=+document.getElementById('payment').value;
-  document.getElementById('change').textContent=pay-total>0?pay-total:0;
-}
-function generateReceipt(){
-  calcTotal();
-  let orderList="";
-  qtyInputs.forEach(i=>{
-    if(i.value>0){
-      orderList+=`${i.parentElement.children[0].textContent} x ${i.value}<br>`;
-    }
-  });
-  document.getElementById('rCustomer').textContent=`Customer: ${fname.value} ${lname.value}`;
-  document.getElementById('rAddress').textContent=`Address: ${address.value}`;
+  <div class="section">
+    <h2>🎉 Event Packages</h2>
+
+    <p><strong>💍 Wedding Package</strong><br>
+    Minimum: 4 dozen<br>
+    Classic ₱55 | Premium ₱65</p>
+    <p class="tag">Popular: Ube • Mango • Red Velvet • Matcha</p>
+
+    <p><strong>🎂 Birthday Package</strong><br>
+    Minimum: 2 dozen<br>
+    ₱50–₱65 depende sa flavor</p>
+
+    <p><strong>🎒 School / Event Package</strong><br>
+    Minimum: 1 dozen<br>
+    ₱40–₱45 | Toppers +₱5–₱10</p>
+  </div>
+
+  <footer>
+    Lead Time: 3–5 days • Custom designs available • Bulk discounts
+  </footer>
+</div>
+
+  </div>
+</body>
+</html>
